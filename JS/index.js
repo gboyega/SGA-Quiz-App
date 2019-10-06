@@ -44,28 +44,46 @@ const showQuestion = (qIndex) => {
         let opt = '.options' + (i + 1);
         let radioB = $('<input type="radio" name="choice" value= ' + element + '/>');
         let radioL = $('<label for=' + element + '>' + element + '</label>');
+        radioB.click(function() {
+            //check answer
+            checkAnswer(this.value);
+
+            if (questionIndex == selectedQuestion.length - 1) {
+
+                //show success message 
+                printSuccess();
+            } else {
+                // show next question
+                showQuestion(questionIndex);
+            };
+            console.log(this.value);
+
+
+        });
         radioB.appendTo(opt);
         radioL.appendTo(opt);
     })
 };
 
-$("input:radio[name='choice']").click(function() {
-    //check answer
-    checkAnswer(this.value);
-
-    if (questionIndex == selectedQuestion.length - 1) {
-
-        //show success message 
-        printSuccess();
-    } else {
-        // show next question
-        showQuestion(questionIndex);
-    };
-    console.log(this.value);
-
-
-});
 
 $(document).ready(function() {
     showQuestion(questionIndex);
 });
+
+
+// $("input:radio[name='choice']").click(function() {
+//     //check answer
+//     checkAnswer(this.value);
+
+//     if (questionIndex == selectedQuestion.length - 1) {
+
+//         //show success message 
+//         printSuccess();
+//     } else {
+//         // show next question
+//         showQuestion(questionIndex);
+//     };
+//     console.log(this.value);
+
+
+// });
