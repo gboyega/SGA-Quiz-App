@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(7, 7, 7, 0.6), rgba(7, 7, 7, 0.6)), url(../img/animals-blur-colors-1319572-min.jpg), no-repeat;
+    background-size: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: lato, sans-serif;
+    color: aqua;
+}
+
+.inner-view {
+    width: 75%;
+    height: 75%;
+    margin: auto auto;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.head {
+    margin: auto;
+    text-align: center;
+    height: 25%;
+    margin: 5%;
+}
+
+h2,
+h3 {
+    margin: 2%;
+}
+
+.question-box {
+    margin: auto;
+    display: flex;
+    flex-flow: row;
+    width: 75%;
+    text-align: center;
+    line-height: 40px;
+}
+
+.question-options {
+    width: 45%;
+    text-align: start;
+    font-weight: 500;
+    margin: 5%;
+    font-size: 24px;
+}
+
+.question-question {
+    width: 45%;
+    text-align: center;
+    font-weight: 700;
+    margin: 5%;
+    font-size: 36px;
+}
+
+input[type=radio] {
+    margin: 10px;
+}
+
+@media screen and (max-width: 1023px) {
+    .question-box {
+        /* background: linear-gradient(rgba(7, 7, 7, 0.6), rgba(7, 7, 7, 0.6)); */
+        margin: auto;
+        display: flex;
+        flex-flow: column;
+        width: auto;
+        text-align: center;
+    }
+    .question-options {
+        width: 100%;
+        font-weight: 500;
+        margin: 2%;
+        font-size: 24px;
+        text-align: start;
+    }
+    .question-question {
+        width: 100%;
+        font-weight: 700;
+        margin: 2%;
+        font-size: 36px;
+    }
+}
