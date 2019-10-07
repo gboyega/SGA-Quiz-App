@@ -1,13 +1,14 @@
-const selectedQuestion = QandA.slice(0, 6);
+const selectedQuestion = QandA.slice(0, 5);
 let score = 0;
 let questionIndex = 0;
+
 
 const checkAnswer = (ans) => {
     if (ans == selectedQuestion[questionIndex].answer) {
         score += 100;
     };
-    questionIndex += 1;
-    console.log((selectedQuestion[questionIndex].answer), score, questionIndex, ans);
+    questionIndex++;
+
 
 };
 
@@ -52,7 +53,7 @@ const showQuestion = (qIndex) => {
         radioB.click(function() {
             //check answer 
             checkAnswer(this.value);
-            if (questionIndex == selectedQuestion.length - 1) {
+            if (questionIndex == selectedQuestion.length) {
 
                 //show success message 
                 printSuccess();
