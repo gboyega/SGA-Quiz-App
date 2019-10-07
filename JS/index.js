@@ -1,4 +1,4 @@
-const selectedQuestion = QandA.slice(0, 5);
+const selectedQuestion = QandA.slice(0, 6);
 let score = 0;
 let questionIndex = 0;
 
@@ -7,6 +7,8 @@ const checkAnswer = (ans) => {
         score += 100;
     };
     questionIndex += 1;
+    console.log((selectedQuestion[questionIndex].answer), score, questionIndex, ans);
+
 };
 
 const printSuccess = () => {
@@ -42,12 +44,14 @@ const showQuestion = (qIndex) => {
 
     question.options.forEach((element, i) => {
         let opt = '.options' + (i + 1);
-        let radioB = $('<input type="radio" name="choice" value= ' + element + '/>');
+        let radioB = $('<input type="radio" name="choice" value= ' + element + ' />');
         let radioL = $('<label for=' + element + '>' + element + '</label>');
-        radioB.click(function() {
-            //check answer
-            checkAnswer(this.value);
 
+        radioB.appendTo(opt);
+        radioL.appendTo(opt);
+        radioB.click(function() {
+            //check answer 
+            checkAnswer(this.value);
             if (questionIndex == selectedQuestion.length - 1) {
 
                 //show success message 
@@ -56,12 +60,9 @@ const showQuestion = (qIndex) => {
                 // show next question
                 showQuestion(questionIndex);
             };
-            console.log(this.value);
-
 
         });
-        radioB.appendTo(opt);
-        radioL.appendTo(opt);
+
     })
 };
 
@@ -69,21 +70,3 @@ const showQuestion = (qIndex) => {
 $(document).ready(function() {
     showQuestion(questionIndex);
 });
-
-
-// $("input:radio[name='choice']").click(function() {
-//     //check answer
-//     checkAnswer(this.value);
-
-//     if (questionIndex == selectedQuestion.length - 1) {
-
-//         //show success message 
-//         printSuccess();
-//     } else {
-//         // show next question
-//         showQuestion(questionIndex);
-//     };
-//     console.log(this.value);
-
-
-// });
